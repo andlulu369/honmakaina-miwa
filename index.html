@@ -144,6 +144,39 @@ footer{background:#0e0618;padding:24px 48px;display:flex;align-items:center;just
 .hk-post-card-text{font-size:15px;color:var(--text-light);line-height:2;font-weight:300;}
 .hk-error{font-size:12px;color:rgba(240,176,200,0.5);text-align:center;padding:16px;}
 @keyframes fadeIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+
+/* APPLY */
+.apply{background:var(--purple);}
+.apply-inner{max-width:680px;margin:0 auto;}
+.apply-lead{font-size:14px;color:var(--text-soft);text-align:center;margin-bottom:48px;line-height:2;}
+.apply-lead em{color:var(--pink);font-style:normal;}
+
+/* サービス一覧 */
+.apply-services{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-bottom:48px;}
+.apply-srv{background:rgba(255,255,255,0.04);border:1px solid rgba(240,176,200,0.15);border-radius:12px;padding:16px 14px;cursor:pointer;transition:all 0.2s;}
+.apply-srv:hover,.apply-srv.selected{background:rgba(240,176,200,0.12);border-color:var(--pink-dark);}
+.apply-srv-num{font-family:'Cormorant Garamond',serif;font-size:22px;color:rgba(240,176,200,0.5);margin-bottom:4px;}
+.apply-srv-name{font-size:12px;color:var(--text-light);line-height:1.6;font-weight:400;}
+.apply-srv-price{font-size:11px;color:var(--pink-dark);margin-top:6px;}
+
+/* フォーム */
+.apply-form{display:flex;flex-direction:column;gap:20px;}
+.form-group{display:flex;flex-direction:column;gap:6px;}
+.form-label{font-size:12px;color:var(--pink-dark);letter-spacing:2px;}
+.form-label span{color:rgba(240,176,200,0.5);font-size:10px;margin-left:4px;}
+.form-input,.form-select,.form-textarea{background:rgba(255,255,255,0.05);border:1px solid rgba(240,176,200,0.2);border-radius:10px;padding:13px 16px;color:var(--text-light);font-size:14px;font-family:'Noto Sans JP',sans-serif;outline:none;transition:border-color 0.2s;width:100%;}
+.form-input::placeholder,.form-textarea::placeholder{color:rgba(255,255,255,0.2);}
+.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--pink-dark);}
+.form-select{appearance:none;cursor:pointer;}
+.form-select option{background:#200c38;color:#fff;}
+.form-textarea{resize:vertical;min-height:120px;line-height:1.8;}
+.form-note{font-size:11px;color:var(--text-soft);line-height:1.8;text-align:center;margin-top:8px;}
+.apply-btn{background:var(--pink-dark);color:var(--purple);border:none;padding:16px 40px;border-radius:32px;font-size:15px;font-weight:700;font-family:'Noto Sans JP',sans-serif;cursor:pointer;letter-spacing:2px;transition:opacity 0.2s;width:100%;margin-top:8px;}
+.apply-btn:hover{opacity:0.85;}
+.apply-success{display:none;background:rgba(240,176,200,0.1);border:1px solid rgba(240,176,200,0.3);border-radius:14px;padding:32px;text-align:center;margin-top:24px;}
+.apply-success-icon{font-size:40px;margin-bottom:12px;}
+.apply-success-text{font-family:'Noto Serif JP',serif;font-size:18px;color:var(--pink);margin-bottom:8px;letter-spacing:1px;}
+.apply-success-sub{font-size:13px;color:var(--text-soft);line-height:2;}
 </style>
 </head>
 <body>
@@ -157,6 +190,7 @@ footer{background:#0e0618;padding:24px 48px;display:flex;align-items:center;just
     <li><a href="#about">プロフィール</a></li>
     <li><a href="#service">サービス</a></li>
     <li><a href="#hitokoto">今日の一言</a></li>
+    <li><a href="#apply">お申し込み</a></li>
     <li><a href="#contact">お問い合わせ</a></li>
   </ul>
   <a href="#contact" class="nav-btn">お気軽にご連絡を ♪</a>
@@ -216,10 +250,10 @@ footer{background:#0e0618;padding:24px 48px;display:flex;align-items:center;just
   <span class="sec-orn">― ✦ ―</span>
   <div class="srv-grid">
     <div class="sc"><span class="sc-num">01</span><p class="sc-name">ボディーセラピー・遠隔マッサージ</p><p class="sc-desc">遠隔にて、むくみ取りを目的としたマッサージを行います。</p><div class="sc-divider"></div><span class="sc-plabel">Price</span><span class="sc-price">¥1,000 / 10分</span><span class="sc-note">60分〜</span></div>
-    <div class="sc featured"><span class="sc-num">02</span><p class="sc-name">お繋ぎ屋</p><p class="sc-desc">「できる人」と「やりたい人」をつなぐご縁のマッチング。</p><div class="sc-divider"></div><span class="sc-plabel">Price</span><span class="sc-price">成立金額の 10%</span></div>
-    <div class="sc"><span class="sc-num">03</span><p class="sc-name">アンジェロ ♥ セッション</p><p class="sc-desc">人生の流れやテーマを読み解き、本来の自分らしい生き方へ導くセッション。</p><div class="sc-divider"></div><span class="sc-plabel">Price</span><span class="sc-price">¥1,500,000</span></div>
-    <div class="sc"><span class="sc-num">04</span><p class="sc-name">心のワクワクをみるカードリーディング</p><p class="sc-desc">禅タロットを使ったカードリーディングです。</p><div class="sc-divider"></div><span class="sc-plabel">Price</span><span class="sc-price">¥1,000 / 10分</span><span class="sc-note">60分〜</span></div>
-    <div class="sc"><span class="sc-num">05</span><p class="sc-name">海外・国内リトリート</p><p class="sc-desc">その時、その場所、その仲間だからこそ体験できる特別な時間。</p><div class="sc-divider"></div><span class="sc-plabel">Price</span><span class="sc-price" style="font-size:13px;color:var(--text-soft);">各企画ごとにご案内</span></div>
+    <div class="sc featured"><span class="sc-num">03</span><p class="sc-name">お繋ぎ屋</p><p class="sc-desc">「できる人」と「やりたい人」をつなぐご縁のマッチング。</p><div class="sc-divider"></div><span class="sc-plabel">Price</span><span class="sc-price">成立金額の 10%</span></div>
+    <div class="sc"><span class="sc-num">04</span><p class="sc-name">アンジェロ ♥ セッション</p><p class="sc-desc">人生の流れやテーマを読み解き、本来の自分らしい生き方へ導くセッション。</p><div class="sc-divider"></div><span class="sc-plabel">Price</span><span class="sc-price">¥1,500,000</span></div>
+    <div class="sc"><span class="sc-num">05</span><p class="sc-name">心のワクワクをみるカードリーディング</p><p class="sc-desc">禅タロットを使ったカードリーディングです。</p><div class="sc-divider"></div><span class="sc-plabel">Price</span><span class="sc-price">¥1,000 / 10分</span><span class="sc-note">60分〜</span></div>
+    <div class="sc"><span class="sc-num">06</span><p class="sc-name">海外・国内リトリート</p><p class="sc-desc">その時、その場所、その仲間だからこそ体験できる特別な時間。</p><div class="sc-divider"></div><span class="sc-plabel">Price</span><span class="sc-price" style="font-size:13px;color:var(--text-soft);">各企画ごとにご案内</span></div>
   </div>
 </section>
 
@@ -268,6 +302,147 @@ footer{background:#0e0618;padding:24px 48px;display:flex;align-items:center;just
     <p style="font-size:11px;color:var(--text-soft);">※各リンクはURL設定後に有効になります</p>
   </div>
 </section>
+
+
+<section class="apply sec" id="apply">
+  <span class="sec-en">Apply</span>
+  <h2 class="sec-ja">お申し込み</h2>
+  <span class="sec-orn">― ✦ ―</span>
+  <div class="apply-inner">
+    <p class="apply-lead">
+      ご興味のあるサービスをお選びいただき、<br>
+      フォームよりお気軽にお問い合わせください 💕<br>
+      <em>通常2〜3営業日以内にご返信いたします。</em>
+    </p>
+
+    <!-- サービス選択カード -->
+    <div class="apply-services">
+      <div class="apply-srv" onclick="selectService(this,'ボディーセラピー・遠隔マッサージ')">
+        <div class="apply-srv-num">01</div>
+        <div class="apply-srv-name">ボディーセラピー・遠隔マッサージ</div>
+        <div class="apply-srv-price">¥1,000 / 10分〜</div>
+      </div>
+      <div class="apply-srv" onclick="selectService(this,'ボディーセラピー・マッサージ')">
+        <div class="apply-srv-num">02</div>
+        <div class="apply-srv-name">ボディーセラピー・マッサージ</div>
+        <div class="apply-srv-price">¥1,000 / 10分〜</div>
+      </div>
+      <div class="apply-srv" onclick="selectService(this,'お繋ぎ屋')">
+        <div class="apply-srv-num">03</div>
+        <div class="apply-srv-name">お繋ぎ屋</div>
+        <div class="apply-srv-price">成立金額の10%</div>
+      </div>
+      <div class="apply-srv" onclick="selectService(this,'アンジェロ♥セッション')">
+        <div class="apply-srv-num">04</div>
+        <div class="apply-srv-name">アンジェロ ♥ セッション</div>
+        <div class="apply-srv-price">¥1,500,000</div>
+      </div>
+      <div class="apply-srv" onclick="selectService(this,'心のワクワクをみるカードリーディング')">
+        <div class="apply-srv-num">05</div>
+        <div class="apply-srv-name">心のワクワクをみるカードリーディング</div>
+        <div class="apply-srv-price">¥1,000 / 10分〜</div>
+      </div>
+      <div class="apply-srv" onclick="selectService(this,'海外・国内リトリート')">
+        <div class="apply-srv-num">06</div>
+        <div class="apply-srv-name">海外・国内リトリート</div>
+        <div class="apply-srv-price">各企画ごとにご案内</div>
+      </div>
+    </div>
+
+    <!-- 申し込みフォーム -->
+    <div class="apply-form" id="applyForm">
+      <div class="form-group">
+        <label class="form-label">お名前 <span>※必須</span></label>
+        <input type="text" class="form-input" id="fname" placeholder="例：金澤 美和" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">メールアドレス <span>※必須</span></label>
+        <input type="email" class="form-input" id="femail" placeholder="例：miwa@example.com" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">電話番号 <span>任意</span></label>
+        <input type="tel" class="form-input" id="ftel" placeholder="例：090-0000-0000">
+      </div>
+      <div class="form-group">
+        <label class="form-label">ご希望のサービス <span>※必須</span></label>
+        <select class="form-select form-input" id="fservice">
+          <option value="">-- サービスをお選びください --</option>
+          <option value="ボディーセラピー・遠隔マッサージ">01. ボディーセラピー・遠隔マッサージ</option>
+          <option value="ボディーセラピー・マッサージ">02. ボディーセラピー・マッサージ</option>
+          <option value="お繋ぎ屋">03. お繋ぎ屋</option>
+          <option value="アンジェロ♥セッション">03. アンジェロ ♥ セッション</option>
+          <option value="心のワクワクをみるカードリーディング">04. 心のワクワクをみるカードリーディング</option>
+          <option value="海外・国内リトリート">05. 海外・国内リトリート</option>
+          <option value="その他・相談したい">その他・まずは相談したい</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">メッセージ <span>任意</span></label>
+        <textarea class="form-textarea" id="fmessage" placeholder="ご質問やご要望などお気軽にどうぞ 😊"></textarea>
+      </div>
+      <p class="form-note">送信後、自動的にメールが起動します。<br>そのまま送信してください。</p>
+      <button class="apply-btn" onclick="submitForm()">お申し込みする ✉️</button>
+    </div>
+
+    <!-- 送信完了メッセージ -->
+    <div class="apply-success" id="applySuccess">
+      <div class="apply-success-icon">💌</div>
+      <div class="apply-success-text">お申し込みありがとうございます！</div>
+      <div class="apply-success-sub">メールアプリが開きます。<br>そのまま送信してください。<br>通常2〜3営業日以内にご返信いたします 😊</div>
+    </div>
+  </div>
+</section>
+
+<script>
+// サービスカードをクリックしたらセレクトボックスに反映
+function selectService(el, name) {
+  document.querySelectorAll('.apply-srv').forEach(s => s.classList.remove('selected'));
+  el.classList.add('selected');
+  document.getElementById('fservice').value = name;
+}
+
+// フォーム送信（mailtoで送信）
+function submitForm() {
+  const name = document.getElementById('fname').value.trim();
+  const email = document.getElementById('femail').value.trim();
+  const tel = document.getElementById('ftel').value.trim();
+  const service = document.getElementById('fservice').value;
+  const message = document.getElementById('fmessage').value.trim();
+
+  if (!name) { alert('お名前をご入力ください。'); return; }
+  if (!email) { alert('メールアドレスをご入力ください。'); return; }
+  if (!service) { alert('ご希望のサービスをお選びください。'); return; }
+
+  const subject = encodeURIComponent('【お申し込み】' + service + ' / ' + name + ' 様');
+  const body = encodeURIComponent(
+    'ほんまかいな！みわ お申し込みフォームより
+
+' +
+    '━━━━━━━━━━━━━━━━
+' +
+    'お名前：' + name + '
+' +
+    'メールアドレス：' + email + '
+' +
+    '電話番号：' + (tel || '未入力') + '
+' +
+    'ご希望サービス：' + service + '
+' +
+    'メッセージ：
+' + (message || 'なし') + '
+' +
+    '━━━━━━━━━━━━━━━━'
+  );
+
+  // 美和さんのメールアドレスに送信（要変更）
+  window.location.href = 'mailto:MIWA_EMAIL_ADDRESS?subject=' + subject + '&body=' + body;
+
+  // 送信完了表示
+  document.getElementById('applySuccess').style.display = 'block';
+  document.getElementById('applyForm').style.opacity = '0.4';
+  document.getElementById('applyForm').style.pointerEvents = 'none';
+}
+</script>
 
 <footer>
   <div class="ft-logo">ほんまかいな！みわ ｜ 金澤 美和</div>
@@ -498,6 +673,7 @@ footer{background:#0e0618;padding:24px 48px;display:flex;align-items:center;just
     <li><a href="#about">プロフィール</a></li>
     <li><a href="#service">サービス</a></li>
     <li><a href="#hitokoto">今日の一言</a></li>
+    <li><a href="#apply">お申し込み</a></li>
     <li><a href="#contact">お問い合わせ</a></li>
   </ul>
   <a href="#contact" class="nav-btn">お気軽にご連絡を ♪</a>
@@ -557,10 +733,10 @@ footer{background:#0e0618;padding:24px 48px;display:flex;align-items:center;just
   <span class="sec-orn">― ✦ ―</span>
   <div class="srv-grid">
     <div class="sc"><span class="sc-num">01</span><p class="sc-name">ボディーセラピー・遠隔マッサージ</p><p class="sc-desc">遠隔にて、むくみ取りを目的としたマッサージを行います。</p><div class="sc-divider"></div><span class="sc-plabel">Price</span><span class="sc-price">¥1,000 / 10分</span><span class="sc-note">60分〜</span></div>
-    <div class="sc featured"><span class="sc-num">02</span><p class="sc-name">お繋ぎ屋</p><p class="sc-desc">「できる人」と「やりたい人」をつなぐご縁のマッチング。</p><div class="sc-divider"></div><span class="sc-plabel">Price</span><span class="sc-price">成立金額の 10%</span></div>
-    <div class="sc"><span class="sc-num">03</span><p class="sc-name">アンジェロ ♥ セッション</p><p class="sc-desc">人生の流れやテーマを読み解き、本来の自分らしい生き方へ導くセッション。</p><div class="sc-divider"></div><span class="sc-plabel">Price</span><span class="sc-price">¥1,500,000</span></div>
-    <div class="sc"><span class="sc-num">04</span><p class="sc-name">心のワクワクをみるカードリーディング</p><p class="sc-desc">禅タロットを使ったカードリーディングです。</p><div class="sc-divider"></div><span class="sc-plabel">Price</span><span class="sc-price">¥1,000 / 10分</span><span class="sc-note">60分〜</span></div>
-    <div class="sc"><span class="sc-num">05</span><p class="sc-name">海外・国内リトリート</p><p class="sc-desc">その時、その場所、その仲間だからこそ体験できる特別な時間。</p><div class="sc-divider"></div><span class="sc-plabel">Price</span><span class="sc-price" style="font-size:13px;color:var(--text-soft);">各企画ごとにご案内</span></div>
+    <div class="sc featured"><span class="sc-num">03</span><p class="sc-name">お繋ぎ屋</p><p class="sc-desc">「できる人」と「やりたい人」をつなぐご縁のマッチング。</p><div class="sc-divider"></div><span class="sc-plabel">Price</span><span class="sc-price">成立金額の 10%</span></div>
+    <div class="sc"><span class="sc-num">04</span><p class="sc-name">アンジェロ ♥ セッション</p><p class="sc-desc">人生の流れやテーマを読み解き、本来の自分らしい生き方へ導くセッション。</p><div class="sc-divider"></div><span class="sc-plabel">Price</span><span class="sc-price">¥1,500,000</span></div>
+    <div class="sc"><span class="sc-num">05</span><p class="sc-name">心のワクワクをみるカードリーディング</p><p class="sc-desc">禅タロットを使ったカードリーディングです。</p><div class="sc-divider"></div><span class="sc-plabel">Price</span><span class="sc-price">¥1,000 / 10分</span><span class="sc-note">60分〜</span></div>
+    <div class="sc"><span class="sc-num">06</span><p class="sc-name">海外・国内リトリート</p><p class="sc-desc">その時、その場所、その仲間だからこそ体験できる特別な時間。</p><div class="sc-divider"></div><span class="sc-plabel">Price</span><span class="sc-price" style="font-size:13px;color:var(--text-soft);">各企画ごとにご案内</span></div>
   </div>
 </section>
 
@@ -609,6 +785,147 @@ footer{background:#0e0618;padding:24px 48px;display:flex;align-items:center;just
     <p style="font-size:11px;color:var(--text-soft);">※各リンクはURL設定後に有効になります</p>
   </div>
 </section>
+
+
+<section class="apply sec" id="apply">
+  <span class="sec-en">Apply</span>
+  <h2 class="sec-ja">お申し込み</h2>
+  <span class="sec-orn">― ✦ ―</span>
+  <div class="apply-inner">
+    <p class="apply-lead">
+      ご興味のあるサービスをお選びいただき、<br>
+      フォームよりお気軽にお問い合わせください 💕<br>
+      <em>通常2〜3営業日以内にご返信いたします。</em>
+    </p>
+
+    <!-- サービス選択カード -->
+    <div class="apply-services">
+      <div class="apply-srv" onclick="selectService(this,'ボディーセラピー・遠隔マッサージ')">
+        <div class="apply-srv-num">01</div>
+        <div class="apply-srv-name">ボディーセラピー・遠隔マッサージ</div>
+        <div class="apply-srv-price">¥1,000 / 10分〜</div>
+      </div>
+      <div class="apply-srv" onclick="selectService(this,'ボディーセラピー・マッサージ')">
+        <div class="apply-srv-num">02</div>
+        <div class="apply-srv-name">ボディーセラピー・マッサージ</div>
+        <div class="apply-srv-price">¥1,000 / 10分〜</div>
+      </div>
+      <div class="apply-srv" onclick="selectService(this,'お繋ぎ屋')">
+        <div class="apply-srv-num">03</div>
+        <div class="apply-srv-name">お繋ぎ屋</div>
+        <div class="apply-srv-price">成立金額の10%</div>
+      </div>
+      <div class="apply-srv" onclick="selectService(this,'アンジェロ♥セッション')">
+        <div class="apply-srv-num">04</div>
+        <div class="apply-srv-name">アンジェロ ♥ セッション</div>
+        <div class="apply-srv-price">¥1,500,000</div>
+      </div>
+      <div class="apply-srv" onclick="selectService(this,'心のワクワクをみるカードリーディング')">
+        <div class="apply-srv-num">05</div>
+        <div class="apply-srv-name">心のワクワクをみるカードリーディング</div>
+        <div class="apply-srv-price">¥1,000 / 10分〜</div>
+      </div>
+      <div class="apply-srv" onclick="selectService(this,'海外・国内リトリート')">
+        <div class="apply-srv-num">06</div>
+        <div class="apply-srv-name">海外・国内リトリート</div>
+        <div class="apply-srv-price">各企画ごとにご案内</div>
+      </div>
+    </div>
+
+    <!-- 申し込みフォーム -->
+    <div class="apply-form" id="applyForm">
+      <div class="form-group">
+        <label class="form-label">お名前 <span>※必須</span></label>
+        <input type="text" class="form-input" id="fname" placeholder="例：金澤 美和" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">メールアドレス <span>※必須</span></label>
+        <input type="email" class="form-input" id="femail" placeholder="例：miwa@example.com" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">電話番号 <span>任意</span></label>
+        <input type="tel" class="form-input" id="ftel" placeholder="例：090-0000-0000">
+      </div>
+      <div class="form-group">
+        <label class="form-label">ご希望のサービス <span>※必須</span></label>
+        <select class="form-select form-input" id="fservice">
+          <option value="">-- サービスをお選びください --</option>
+          <option value="ボディーセラピー・遠隔マッサージ">01. ボディーセラピー・遠隔マッサージ</option>
+          <option value="ボディーセラピー・マッサージ">02. ボディーセラピー・マッサージ</option>
+          <option value="お繋ぎ屋">03. お繋ぎ屋</option>
+          <option value="アンジェロ♥セッション">03. アンジェロ ♥ セッション</option>
+          <option value="心のワクワクをみるカードリーディング">04. 心のワクワクをみるカードリーディング</option>
+          <option value="海外・国内リトリート">05. 海外・国内リトリート</option>
+          <option value="その他・相談したい">その他・まずは相談したい</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">メッセージ <span>任意</span></label>
+        <textarea class="form-textarea" id="fmessage" placeholder="ご質問やご要望などお気軽にどうぞ 😊"></textarea>
+      </div>
+      <p class="form-note">送信後、自動的にメールが起動します。<br>そのまま送信してください。</p>
+      <button class="apply-btn" onclick="submitForm()">お申し込みする ✉️</button>
+    </div>
+
+    <!-- 送信完了メッセージ -->
+    <div class="apply-success" id="applySuccess">
+      <div class="apply-success-icon">💌</div>
+      <div class="apply-success-text">お申し込みありがとうございます！</div>
+      <div class="apply-success-sub">メールアプリが開きます。<br>そのまま送信してください。<br>通常2〜3営業日以内にご返信いたします 😊</div>
+    </div>
+  </div>
+</section>
+
+<script>
+// サービスカードをクリックしたらセレクトボックスに反映
+function selectService(el, name) {
+  document.querySelectorAll('.apply-srv').forEach(s => s.classList.remove('selected'));
+  el.classList.add('selected');
+  document.getElementById('fservice').value = name;
+}
+
+// フォーム送信（mailtoで送信）
+function submitForm() {
+  const name = document.getElementById('fname').value.trim();
+  const email = document.getElementById('femail').value.trim();
+  const tel = document.getElementById('ftel').value.trim();
+  const service = document.getElementById('fservice').value;
+  const message = document.getElementById('fmessage').value.trim();
+
+  if (!name) { alert('お名前をご入力ください。'); return; }
+  if (!email) { alert('メールアドレスをご入力ください。'); return; }
+  if (!service) { alert('ご希望のサービスをお選びください。'); return; }
+
+  const subject = encodeURIComponent('【お申し込み】' + service + ' / ' + name + ' 様');
+  const body = encodeURIComponent(
+    'ほんまかいな！みわ お申し込みフォームより
+
+' +
+    '━━━━━━━━━━━━━━━━
+' +
+    'お名前：' + name + '
+' +
+    'メールアドレス：' + email + '
+' +
+    '電話番号：' + (tel || '未入力') + '
+' +
+    'ご希望サービス：' + service + '
+' +
+    'メッセージ：
+' + (message || 'なし') + '
+' +
+    '━━━━━━━━━━━━━━━━'
+  );
+
+  // 美和さんのメールアドレスに送信（要変更）
+  window.location.href = 'mailto:MIWA_EMAIL_ADDRESS?subject=' + subject + '&body=' + body;
+
+  // 送信完了表示
+  document.getElementById('applySuccess').style.display = 'block';
+  document.getElementById('applyForm').style.opacity = '0.4';
+  document.getElementById('applyForm').style.pointerEvents = 'none';
+}
+</script>
 
 <footer>
   <div class="ft-logo">ほんまかいな！みわ ｜ 金澤 美和</div>
