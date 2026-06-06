@@ -237,8 +237,8 @@ footer{background:#0e0618;padding:24px 48px;display:flex;align-items:center;just
     <span class="sec-orn">― ✦ ―</span>
     <p class="hk-lead">みわからあなたへ、毎日ひとことお届けします 💕</p>
 
-    <!-- 投稿フォーム（Googleフォームに差し替え） -->
-    <div class="hk-form-wrap">
+    <!-- 管理者用フォーム（閲覧者には非表示） -->
+    <div class="hk-form-wrap" style="display:none;">
       <div class="hk-form-label">✏️ 今日の一言を投稿する（管理者用）</div>
       <div class="hk-form-note">👇 下のボタンからGoogleフォームを開いて投稿してください</div>
       <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtHDcYo0QxvE402lmnXfCURk48j4FbN23X-vzruEnkh1sNpQ/viewform?usp=header" target="_blank" class="hk-btn">Googleフォームを開く ↗</a>
@@ -336,7 +336,7 @@ footer{background:#0e0618;padding:24px 48px;display:flex;align-items:center;just
       })
       .catch(err => {
         console.error('Fetch error:', err);
-        latestEl.innerHTML = '<div class="hk-error">読み込みエラーが発生しました 🙏</div>';
+        latestEl.innerHTML = '';
       });
   }
 
@@ -578,8 +578,8 @@ footer{background:#0e0618;padding:24px 48px;display:flex;align-items:center;just
     <span class="sec-orn">― ✦ ―</span>
     <p class="hk-lead">みわからあなたへ、毎日ひとことお届けします 💕</p>
 
-    <!-- 投稿フォーム（Googleフォームに差し替え） -->
-    <div class="hk-form-wrap">
+    <!-- 管理者用フォーム（閲覧者には非表示） -->
+    <div class="hk-form-wrap" style="display:none;">
       <div class="hk-form-label">✏️ 今日の一言を投稿する（管理者用）</div>
       <div class="hk-form-note">👇 下のボタンからGoogleフォームを開いて投稿してください</div>
       <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtHDcYo0QxvE402lmnXfCURk48j4FbN23X-vzruEnkh1sNpQ/viewform?usp=header" target="_blank" class="hk-btn">Googleフォームを開く ↗</a>
@@ -678,7 +678,7 @@ footer{background:#0e0618;padding:24px 48px;display:flex;align-items:center;just
         });
       })
       .catch(() => {
-        latestEl.innerHTML = '<div class="hk-error">スプレッドシートの共有設定を「リンクを知っている全員が閲覧可」にしてください 🙏</div>';
+        latestEl.innerHTML = '';
       });
   }
 
