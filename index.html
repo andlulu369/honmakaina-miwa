@@ -279,20 +279,27 @@ footer{background:#0e0618;padding:24px 48px;display:flex;align-items:center;just
 </script>
 
 <script>
-// Googleスプレッドシートから一言を自動取得して表示
+// CSVからデータ取得して表示
 (function() {
-  const SHEET_ID = "1jE--e9b6reOOtVa8B2xWsZVzCYEvCNt8pnQ_LnI735k";
-  const SHEET_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json`;
-  const postsEl = document.getElementById('hkPosts');
+  const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSVY30lRPqr-mucKEEW9d0480hgKw2KEywN91pKIaPsSXo-AB5l5csUy9jZ_f95SAyVLpdkfE-OyzsZ/pub?gid=1532049572&single=true&output=csv";
   const latestEl = document.getElementById('hkLatest');
+  const postsEl = document.getElementById('hkPosts');
+
+  function parseCSV(text) {
+    const lines = text.trim().split('\n');
+    const rows = [];
+    for (let i = 1; i < lines.length; i++) { // 1行目はヘッダーなのでスキップ
+      const cols = lines[i].split(',').map(c => c.replace(/^"|"$/g, '').trim());
+      if (cols.length >= 1 && cols[0]) rows.push(cols);
+    }
+    return rows;
+  }
 
   function fetchPosts() {
-    fetch(SHEET_URL)
+    fetch(CSV_URL)
       .then(r => r.text())
       .then(text => {
-        // Google独自のJSONP形式をパース
-        const json = JSON.parse(text.substring(text.indexOf('{'), text.lastIndexOf('}') + 1));
-        const rows = json.table ? json.table.rows : [];
+        const rows = parseCSV(text);
 
         if (!rows || rows.length === 0) {
           latestEl.innerHTML = '<div class="hk-error">まだ投稿がありません 🌸</div>';
@@ -302,39 +309,24 @@ footer{background:#0e0618;padding:24px 48px;display:flex;align-items:center;just
         latestEl.innerHTML = '';
         postsEl.innerHTML = '';
 
-        // 新しい順に最大5件表示
+        // 新しい順に最大5件
         const recent = rows.slice().reverse().slice(0, 5);
 
-        recent.forEach((row, i) => {
-          const cols = row.c || [];
-          let dateStr = '';
-          let msgStr = '';
-
-          // タイムスタンプ列（0列目）から日付を生成
-          if (cols[0] && cols[0].v) {
-            const ts = String(cols[0].v);
-            const m = ts.match(/Date\((\d+),(\d+),(\d+)/);
-            if (m) {
-              const d = new Date(+m[1], +m[2], +m[3]);
-              dateStr = d.getFullYear() + '.' + String(d.getMonth()+1).padStart(2,'0') + '.' + String(d.getDate()).padStart(2,'0');
-            } else if (cols[0].f) {
-              dateStr = cols[0].f;
-            }
+        recent.forEach((cols, i) => {
+          // 列0:タイムスタンプ 列1:日付 列2:一言 (フォーム構成による)
+          let dateStr = cols[0] || '';
+          let msgStr = cols[1] || '';
+          if (cols[2]) { // 列が3つある場合（タイムスタンプ・日付・一言）
+            dateStr = cols[1] || cols[0] || '';
+            msgStr = cols[2] || '';
           }
-
-          // 1列目：日付テキスト（フォームの2番目の質問）
-          if (cols[1] && cols[1].v) dateStr = String(cols[1].v);
-          // 2列目：一言テキスト（フォームの3番目の質問）
-          if (cols[2] && cols[2].v) msgStr = String(cols[2].v);
-          // 列が2つの場合（タイムスタンプ＋一言）
-          else if (cols[1] && cols[1].v && !cols[2]) msgStr = String(cols[1].v);
 
           if (!msgStr) return;
 
           const card = document.createElement('div');
           card.className = 'hk-post-card' + (i === 0 ? ' latest' : '');
           card.innerHTML =
-            '<div class="hk-post-card-date">' + (dateStr || '') +
+            '<div class="hk-post-card-date">' + dateStr +
             (i === 0 ? '<span class="hk-post-card-badge">NEW</span>' : '') + '</div>' +
             '<div class="hk-post-card-text">' + msgStr + '</div>';
 
@@ -344,7 +336,7 @@ footer{background:#0e0618;padding:24px 48px;display:flex;align-items:center;just
       })
       .catch(err => {
         console.error('Fetch error:', err);
-        latestEl.innerHTML = '<div class="hk-error">データの読み込みに失敗しました。しばらくしてから再度お試しください 🙏</div>';
+        latestEl.innerHTML = '<div class="hk-error">読み込みエラーが発生しました 🙏</div>';
       });
   }
 
