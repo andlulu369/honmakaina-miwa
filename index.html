@@ -8,29 +8,29 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 :root{
-  --purple:#200c38;
-  --purple-bg:#1a0a2e;
-  --pink:#f0b0c8;
-  --pink-dark:#e8a0b8;
-  --pink-pale:#f5c8d8;
-  --cream:#fdf9f4;
-  --text-light:#f5e8f0;
-  --text-soft:#c8a8c8;
+  --purple:#2e1460;
+  --purple-bg:#1e0a4a;
+  --pink:#ffe066;
+  --pink-dark:#ffd700;
+  --pink-pale:#fff8cc;
+  --cream:#fdfbf0;
+  --text-light:#ffffff;
+  --text-soft:#d4c8f0;
 }
 html{scroll-behavior:smooth;}
 body{font-family:'Noto Sans JP',sans-serif;background:var(--purple-bg);color:var(--text-light);}
 
-nav{background:rgba(26,10,46,0.97);border-bottom:1px solid rgba(240,176,200,0.3);padding:14px 40px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+nav{background:rgba(26,10,46,0.97);border-bottom:1px solid rgba(255,224,102,0.3);padding:14px 40px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
 .logo-sub{font-family:'Cormorant Garamond',serif;font-size:10px;letter-spacing:4px;color:var(--pink-dark);text-transform:uppercase;display:block;margin-bottom:2px;}
 .logo-main{font-family:'Noto Serif JP',serif;font-size:17px;color:var(--text-light);font-weight:600;letter-spacing:1px;}
 .nav-links{display:flex;gap:24px;list-style:none;}
 .nav-links a{font-size:12px;color:var(--text-soft);text-decoration:none;letter-spacing:1px;padding-bottom:2px;border-bottom:1.5px solid transparent;transition:all 0.2s;}
 .nav-links a:hover{border-color:var(--pink-dark);color:var(--pink-dark);}
 .nav-btn{background:transparent;color:var(--pink-dark);border:1px solid rgba(240,176,200,0.5);padding:9px 20px;border-radius:24px;font-size:12px;cursor:pointer;font-family:'Noto Sans JP',sans-serif;letter-spacing:1px;text-decoration:none;display:inline-block;transition:background 0.2s;}
-.nav-btn:hover{background:rgba(240,176,200,0.1);}
+.nav-btn:hover{background:rgba(255,224,102,0.1);}
 
 .hero{background:var(--purple);min-height:88vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:60px 48px 0;position:relative;overflow:hidden;}
-.hero-accent{position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--pink-dark),var(--pink-pale),var(--pink-dark),transparent);}
+.hero-accent{position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--pink-dark),#fff8aa,var(--pink-dark),transparent);}
 .hero-circle1{position:absolute;right:-40px;top:50%;transform:translateY(-50%);width:360px;height:360px;border-radius:50%;border:1px solid rgba(240,176,200,0.12);}
 .hero-circle2{position:absolute;right:-80px;top:50%;transform:translateY(-50%);width:460px;height:460px;border-radius:50%;border:1px solid rgba(124,58,237,0.12);}
 .hero-left{z-index:2;}
@@ -83,11 +83,11 @@ section{padding:80px 48px;}
 .sc-price{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--pink);display:block;}
 .sc-note{font-size:10px;color:var(--text-soft);margin-top:3px;display:block;}
 
-.message-banner{background:var(--pink-pale);padding:64px 48px;text-align:center;}
-.msg-text{font-family:'Noto Serif JP',serif;font-size:22px;font-weight:300;color:var(--purple);letter-spacing:4px;line-height:1.9;margin-bottom:12px;}
+.message-banner{background:#ffe066;padding:64px 48px;text-align:center;}
+.msg-text{font-family:'Noto Serif JP',serif;font-size:22px;font-weight:300;color:#2e1460;letter-spacing:4px;line-height:1.9;margin-bottom:12px;}
 .msg-text em{font-style:normal;font-weight:600;}
-.msg-sub{font-size:14px;color:rgba(50,10,80,0.7);letter-spacing:1px;line-height:2;}
-.msg-note{font-size:11px;color:rgba(50,10,80,0.45);margin-top:20px;}
+.msg-sub{font-size:14px;color:rgba(46,20,96,0.8);letter-spacing:1px;line-height:2;}
+.msg-note{font-size:11px;color:rgba(46,20,96,0.5);margin-top:20px;}
 
 .contact{background:var(--purple-bg);}
 .ct-inner{max-width:660px;margin:0 auto;text-align:center;}
@@ -171,7 +171,7 @@ footer{background:#0e0618;padding:24px 48px;display:flex;align-items:center;just
 .form-select option{background:#200c38;color:#fff;}
 .form-textarea{resize:vertical;min-height:120px;line-height:1.8;}
 .form-note{font-size:11px;color:var(--text-soft);line-height:1.8;text-align:center;margin-top:8px;}
-.apply-btn{background:var(--pink-dark);color:var(--purple);border:none;padding:16px 40px;border-radius:32px;font-size:15px;font-weight:700;font-family:'Noto Sans JP',sans-serif;cursor:pointer;letter-spacing:2px;transition:opacity 0.2s;width:100%;margin-top:8px;}
+.apply-btn{background:var(--pink-dark);color:#2e1460;border:none;padding:16px 40px;border-radius:32px;font-size:15px;font-weight:700;font-family:'Noto Sans JP',sans-serif;cursor:pointer;letter-spacing:2px;transition:opacity 0.2s;width:100%;margin-top:8px;}
 .apply-btn:hover{opacity:0.85;}
 .apply-success{display:none;background:rgba(240,176,200,0.1);border:1px solid rgba(240,176,200,0.3);border-radius:14px;padding:32px;text-align:center;margin-top:24px;}
 .apply-success-icon{font-size:40px;margin-bottom:12px;}
@@ -183,7 +183,7 @@ footer{background:#0e0618;padding:24px 48px;display:flex;align-items:center;just
 
 <nav>
   <div>
-    <span class="logo-sub">Matching Peopoh</span>
+    <span class="logo-sub">マッチングピーポー</span>
     <span class="logo-main">ほんまかいな！みわ</span>
   </div>
   <ul class="nav-links">
@@ -201,7 +201,7 @@ footer{background:#0e0618;padding:24px 48px;display:flex;align-items:center;just
   <div class="hero-circle1"></div>
   <div class="hero-circle2"></div>
   <div class="hero-left">
-    <span class="hero-eyebrow">Matching Peopoh</span>
+    <span class="hero-eyebrow">マッチングピーポー</span>
     <div class="hero-h1">ほんまかいな！</div>
     <div class="hero-h1-pink">みわ</div>
     <div class="hero-rule"></div>
@@ -250,6 +250,7 @@ footer{background:#0e0618;padding:24px 48px;display:flex;align-items:center;just
   <span class="sec-orn">― ✦ ―</span>
   <div class="srv-grid">
     <div class="sc"><span class="sc-num">01</span><p class="sc-name">ボディーセラピー・遠隔マッサージ</p><p class="sc-desc">遠隔にて、むくみ取りを目的としたマッサージを行います。</p><div class="sc-divider"></div><span class="sc-plabel">Price</span><span class="sc-price">¥1,000 / 10分</span><span class="sc-note">60分〜</span></div>
+      <div class="sc"><span class="sc-num">02</span><p class="sc-name">ボディーセラピー・マッサージ</p><p class="sc-desc">直接施術にて、むくみ取りを目的としたマッサージを行います。</p><div class="sc-divider"></div><span class="sc-plabel">Price</span><span class="sc-price">¥1,000 / 10分</span><span class="sc-note">60分〜</span></div>
     <div class="sc featured"><span class="sc-num">03</span><p class="sc-name">お繋ぎ屋</p><p class="sc-desc">「できる人」と「やりたい人」をつなぐご縁のマッチング。</p><div class="sc-divider"></div><span class="sc-plabel">Price</span><span class="sc-price">成立金額の 10%</span></div>
     <div class="sc"><span class="sc-num">04</span><p class="sc-name">アンジェロ ♥ セッション</p><p class="sc-desc">人生の流れやテーマを読み解き、本来の自分らしい生き方へ導くセッション。</p><div class="sc-divider"></div><span class="sc-plabel">Price</span><span class="sc-price">¥1,500,000</span></div>
     <div class="sc"><span class="sc-num">05</span><p class="sc-name">心のワクワクをみるカードリーディング</p><p class="sc-desc">禅タロットを使ったカードリーディングです。</p><div class="sc-divider"></div><span class="sc-plabel">Price</span><span class="sc-price">¥1,000 / 10分</span><span class="sc-note">60分〜</span></div>
@@ -524,29 +525,29 @@ function submitForm() {
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 :root{
-  --purple:#200c38;
-  --purple-bg:#1a0a2e;
-  --pink:#f0b0c8;
-  --pink-dark:#e8a0b8;
-  --pink-pale:#f5c8d8;
-  --cream:#fdf9f4;
-  --text-light:#f5e8f0;
-  --text-soft:#c8a8c8;
+  --purple:#2e1460;
+  --purple-bg:#1e0a4a;
+  --pink:#ffe066;
+  --pink-dark:#ffd700;
+  --pink-pale:#fff8cc;
+  --cream:#fdfbf0;
+  --text-light:#ffffff;
+  --text-soft:#d4c8f0;
 }
 html{scroll-behavior:smooth;}
 body{font-family:'Noto Sans JP',sans-serif;background:var(--purple-bg);color:var(--text-light);}
 
-nav{background:rgba(26,10,46,0.97);border-bottom:1px solid rgba(240,176,200,0.3);padding:14px 40px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+nav{background:rgba(26,10,46,0.97);border-bottom:1px solid rgba(255,224,102,0.3);padding:14px 40px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
 .logo-sub{font-family:'Cormorant Garamond',serif;font-size:10px;letter-spacing:4px;color:var(--pink-dark);text-transform:uppercase;display:block;margin-bottom:2px;}
 .logo-main{font-family:'Noto Serif JP',serif;font-size:17px;color:var(--text-light);font-weight:600;letter-spacing:1px;}
 .nav-links{display:flex;gap:24px;list-style:none;}
 .nav-links a{font-size:12px;color:var(--text-soft);text-decoration:none;letter-spacing:1px;padding-bottom:2px;border-bottom:1.5px solid transparent;transition:all 0.2s;}
 .nav-links a:hover{border-color:var(--pink-dark);color:var(--pink-dark);}
 .nav-btn{background:transparent;color:var(--pink-dark);border:1px solid rgba(240,176,200,0.5);padding:9px 20px;border-radius:24px;font-size:12px;cursor:pointer;font-family:'Noto Sans JP',sans-serif;letter-spacing:1px;text-decoration:none;display:inline-block;transition:background 0.2s;}
-.nav-btn:hover{background:rgba(240,176,200,0.1);}
+.nav-btn:hover{background:rgba(255,224,102,0.1);}
 
 .hero{background:var(--purple);min-height:88vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:60px 48px 0;position:relative;overflow:hidden;}
-.hero-accent{position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--pink-dark),var(--pink-pale),var(--pink-dark),transparent);}
+.hero-accent{position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--pink-dark),#fff8aa,var(--pink-dark),transparent);}
 .hero-circle1{position:absolute;right:-40px;top:50%;transform:translateY(-50%);width:360px;height:360px;border-radius:50%;border:1px solid rgba(240,176,200,0.12);}
 .hero-circle2{position:absolute;right:-80px;top:50%;transform:translateY(-50%);width:460px;height:460px;border-radius:50%;border:1px solid rgba(124,58,237,0.12);}
 .hero-left{z-index:2;}
@@ -599,11 +600,11 @@ section{padding:80px 48px;}
 .sc-price{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--pink);display:block;}
 .sc-note{font-size:10px;color:var(--text-soft);margin-top:3px;display:block;}
 
-.message-banner{background:var(--pink-pale);padding:64px 48px;text-align:center;}
-.msg-text{font-family:'Noto Serif JP',serif;font-size:22px;font-weight:300;color:var(--purple);letter-spacing:4px;line-height:1.9;margin-bottom:12px;}
+.message-banner{background:#ffe066;padding:64px 48px;text-align:center;}
+.msg-text{font-family:'Noto Serif JP',serif;font-size:22px;font-weight:300;color:#2e1460;letter-spacing:4px;line-height:1.9;margin-bottom:12px;}
 .msg-text em{font-style:normal;font-weight:600;}
-.msg-sub{font-size:14px;color:rgba(50,10,80,0.7);letter-spacing:1px;line-height:2;}
-.msg-note{font-size:11px;color:rgba(50,10,80,0.45);margin-top:20px;}
+.msg-sub{font-size:14px;color:rgba(46,20,96,0.8);letter-spacing:1px;line-height:2;}
+.msg-note{font-size:11px;color:rgba(46,20,96,0.5);margin-top:20px;}
 
 .contact{background:var(--purple-bg);}
 .ct-inner{max-width:660px;margin:0 auto;text-align:center;}
@@ -666,7 +667,7 @@ footer{background:#0e0618;padding:24px 48px;display:flex;align-items:center;just
 
 <nav>
   <div>
-    <span class="logo-sub">Matching Peopoh</span>
+    <span class="logo-sub">マッチングピーポー</span>
     <span class="logo-main">ほんまかいな！みわ</span>
   </div>
   <ul class="nav-links">
@@ -684,7 +685,7 @@ footer{background:#0e0618;padding:24px 48px;display:flex;align-items:center;just
   <div class="hero-circle1"></div>
   <div class="hero-circle2"></div>
   <div class="hero-left">
-    <span class="hero-eyebrow">Matching Peopoh</span>
+    <span class="hero-eyebrow">マッチングピーポー</span>
     <div class="hero-h1">ほんまかいな！</div>
     <div class="hero-h1-pink">みわ</div>
     <div class="hero-rule"></div>
@@ -733,6 +734,7 @@ footer{background:#0e0618;padding:24px 48px;display:flex;align-items:center;just
   <span class="sec-orn">― ✦ ―</span>
   <div class="srv-grid">
     <div class="sc"><span class="sc-num">01</span><p class="sc-name">ボディーセラピー・遠隔マッサージ</p><p class="sc-desc">遠隔にて、むくみ取りを目的としたマッサージを行います。</p><div class="sc-divider"></div><span class="sc-plabel">Price</span><span class="sc-price">¥1,000 / 10分</span><span class="sc-note">60分〜</span></div>
+      <div class="sc"><span class="sc-num">02</span><p class="sc-name">ボディーセラピー・マッサージ</p><p class="sc-desc">直接施術にて、むくみ取りを目的としたマッサージを行います。</p><div class="sc-divider"></div><span class="sc-plabel">Price</span><span class="sc-price">¥1,000 / 10分</span><span class="sc-note">60分〜</span></div>
     <div class="sc featured"><span class="sc-num">03</span><p class="sc-name">お繋ぎ屋</p><p class="sc-desc">「できる人」と「やりたい人」をつなぐご縁のマッチング。</p><div class="sc-divider"></div><span class="sc-plabel">Price</span><span class="sc-price">成立金額の 10%</span></div>
     <div class="sc"><span class="sc-num">04</span><p class="sc-name">アンジェロ ♥ セッション</p><p class="sc-desc">人生の流れやテーマを読み解き、本来の自分らしい生き方へ導くセッション。</p><div class="sc-divider"></div><span class="sc-plabel">Price</span><span class="sc-price">¥1,500,000</span></div>
     <div class="sc"><span class="sc-num">05</span><p class="sc-name">心のワクワクをみるカードリーディング</p><p class="sc-desc">禅タロットを使ったカードリーディングです。</p><div class="sc-divider"></div><span class="sc-plabel">Price</span><span class="sc-price">¥1,000 / 10分</span><span class="sc-note">60分〜</span></div>
