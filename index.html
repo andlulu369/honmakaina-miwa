@@ -464,9 +464,18 @@ function submitForm() {
   function parseCSV(text) {
     const lines = text.trim().split('\n');
     const rows = [];
-    for (let i = 1; i < lines.length; i++) { // 1行目はヘッダーなのでスキップ
-      const cols = lines[i].split(',').map(c => c.replace(/^"|"$/g, '').trim());
-      if (cols.length >= 1 && cols[0]) rows.push(cols);
+    for (let i = 1; i < lines.length; i++) {
+      // カンマ区切りをクォート対応で正しくパース
+      const cols = [];
+      let cur = '';
+      let inQ = false;
+      for (let c of lines[i]) {
+        if (c === '"') { inQ = !inQ; }
+        else if (c === ',' && !inQ) { cols.push(cur.trim()); cur = ''; }
+        else { cur += c; }
+      }
+      cols.push(cur.trim());
+      if (cols.length >= 3 && cols[0]) rows.push(cols);
     }
     return rows;
   }
@@ -489,13 +498,9 @@ function submitForm() {
         const recent = rows.slice().reverse().slice(0, 5);
 
         recent.forEach((cols, i) => {
-          // 列0:タイムスタンプ 列1:日付 列2:一言 (フォーム構成による)
-          let dateStr = cols[0] || '';
-          let msgStr = cols[1] || '';
-          if (cols[2]) { // 列が3つある場合（タイムスタンプ・日付・一言）
-            dateStr = cols[1] || cols[0] || '';
-            msgStr = cols[2] || '';
-          }
+          // A列(0):タイムスタンプ  B列(1):日付  C列(2):一言
+          const dateStr = cols[1] || '';  // B列の日付を使用
+          const msgStr  = cols[2] || '';  // C列の一言を使用
 
           if (!msgStr) return;
 
