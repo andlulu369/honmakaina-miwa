@@ -388,40 +388,43 @@ footer{background:#0e0618;padding:24px 48px;display:flex;align-items:center;just
       </div>
     </div>
 
-    <!-- 申し込みフォーム -->
-    <div class="apply-form" id="applyForm">
+    <!-- 申し込みフォーム（Formspree） -->
+    <form class="apply-form" id="applyForm"
+          action="https://formspree.io/f/mzdqreag"
+          method="POST">
       <div class="form-group">
         <label class="form-label">お名前 <span>※必須</span></label>
-        <input type="text" class="form-input" id="fname" placeholder="例：金澤 美和" required>
+        <input type="text" class="form-input" name="お名前" placeholder="例：金澤 美和" required>
       </div>
       <div class="form-group">
         <label class="form-label">メールアドレス <span>※必須</span></label>
-        <input type="email" class="form-input" id="femail" placeholder="例：miwa@example.com" required>
+        <input type="email" class="form-input" name="メールアドレス" placeholder="例：miwa@example.com" required>
       </div>
       <div class="form-group">
         <label class="form-label">電話番号 <span>任意</span></label>
-        <input type="tel" class="form-input" id="ftel" placeholder="例：090-0000-0000">
+        <input type="tel" class="form-input" name="電話番号" placeholder="例：090-0000-0000">
       </div>
       <div class="form-group">
         <label class="form-label">ご希望のサービス <span>※必須</span></label>
-        <select class="form-select form-input" id="fservice">
+        <select class="form-select form-input" name="ご希望のサービス" id="fservice" required>
           <option value="">-- サービスをお選びください --</option>
           <option value="ボディーセラピー・遠隔マッサージ">01. ボディーセラピー・遠隔マッサージ</option>
           <option value="ボディーセラピー・マッサージ">02. ボディーセラピー・マッサージ</option>
           <option value="お繋ぎ屋">03. お繋ぎ屋</option>
-          <option value="アンジェロ♥セッション">03. アンジェロ ♥ セッション</option>
-          <option value="心のワクワクをみるカードリーディング">04. 心のワクワクをみるカードリーディング</option>
-          <option value="海外・国内リトリート">05. 海外・国内リトリート</option>
+          <option value="アンジェロ♥セッション">04. アンジェロ ♥ セッション</option>
+          <option value="心のワクワクをみるカードリーディング">05. 心のワクワクをみるカードリーディング</option>
+          <option value="海外・国内リトリート">06. 海外・国内リトリート</option>
           <option value="その他・相談したい">その他・まずは相談したい</option>
         </select>
       </div>
       <div class="form-group">
         <label class="form-label">メッセージ <span>任意</span></label>
-        <textarea class="form-textarea" id="fmessage" placeholder="ご質問やご要望などお気軽にどうぞ 😊"></textarea>
+        <textarea class="form-textarea" name="メッセージ" placeholder="ご質問やご要望などお気軽にどうぞ 😊"></textarea>
       </div>
-      <p class="form-note">送信後、自動的にメールが起動します。<br>そのまま送信してください。</p>
-      <button class="apply-btn" onclick="submitForm()">お申し込みする ✉️</button>
-    </div>
+      <input type="hidden" name="_subject" value="【お申し込み】ほんまかいな！みわ HP">
+      <p class="form-note">送信ボタンを押すだけで完了します✨<br>通常2〜3営業日以内にご返信いたします。</p>
+      <button type="submit" class="apply-btn">お申し込みする ✉️</button>
+    </form>
 
     <!-- 送信完了メッセージ -->
     <div class="apply-success" id="applySuccess">
@@ -444,47 +447,32 @@ function selectService(el, name) {
   document.getElementById('fservice').value = name;
 }
 
-// フォーム送信（mailtoで送信）
-function submitForm() {
-  const name = document.getElementById('fname').value.trim();
-  const email = document.getElementById('femail').value.trim();
-  const tel = document.getElementById('ftel').value.trim();
-  const service = document.getElementById('fservice').value;
-  const message = document.getElementById('fmessage').value.trim();
-
-  if (!name) { alert('お名前をご入力ください。'); return; }
-  if (!email) { alert('メールアドレスをご入力ください。'); return; }
-  if (!service) { alert('ご希望のサービスをお選びください。'); return; }
-
-  const subject = encodeURIComponent('【お申し込み】' + service + ' / ' + name + ' 様');
-  const body = encodeURIComponent(
-    'ほんまかいな！みわ お申し込みフォームより
-
-' +
-    '━━━━━━━━━━━━━━━━
-' +
-    'お名前：' + name + '
-' +
-    'メールアドレス：' + email + '
-' +
-    '電話番号：' + (tel || '未入力') + '
-' +
-    'ご希望サービス：' + service + '
-' +
-    'メッセージ：
-' + (message || 'なし') + '
-' +
-    '━━━━━━━━━━━━━━━━'
-  );
-
-  // 美和さんのメールアドレスに送信（要変更）
-  window.location.href = 'mailto:miwa2525.k@gmail.com?subject=' + subject + '&body=' + body;
-
-  // 送信完了表示
-  document.getElementById('applySuccess').style.display = 'block';
-  document.getElementById('applyForm').style.opacity = '0.4';
-  document.getElementById('applyForm').style.pointerEvents = 'none';
+// Formspreeの送信をAjaxで処理して完了メッセージを表示
+const applyForm = document.getElementById('applyForm');
+if (applyForm) {
+  applyForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const data = new FormData(applyForm);
+    fetch('https://formspree.io/f/mzdqreag', {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    }).then(response => {
+      if (response.ok) {
+        document.getElementById('applySuccess').style.display = 'block';
+        applyForm.style.opacity = '0.3';
+        applyForm.style.pointerEvents = 'none';
+        document.getElementById('applySuccess').scrollIntoView({behavior:'smooth'});
+      } else {
+        alert('送信に失敗しました。お手数ですが直接メール（miwa2525.k@gmail.com）にご連絡ください。');
+      }
+    }).catch(() => {
+      alert('送信に失敗しました。お手数ですが直接メール（miwa2525.k@gmail.com）にご連絡ください。');
+    });
+  });
 }
+
+// フォーム送信（mailtoで送信）
 </script>
 
 <footer>
@@ -897,40 +885,43 @@ footer{background:#0e0618;padding:24px 48px;display:flex;align-items:center;just
       </div>
     </div>
 
-    <!-- 申し込みフォーム -->
-    <div class="apply-form" id="applyForm">
+    <!-- 申し込みフォーム（Formspree） -->
+    <form class="apply-form" id="applyForm"
+          action="https://formspree.io/f/mzdqreag"
+          method="POST">
       <div class="form-group">
         <label class="form-label">お名前 <span>※必須</span></label>
-        <input type="text" class="form-input" id="fname" placeholder="例：金澤 美和" required>
+        <input type="text" class="form-input" name="お名前" placeholder="例：金澤 美和" required>
       </div>
       <div class="form-group">
         <label class="form-label">メールアドレス <span>※必須</span></label>
-        <input type="email" class="form-input" id="femail" placeholder="例：miwa@example.com" required>
+        <input type="email" class="form-input" name="メールアドレス" placeholder="例：miwa@example.com" required>
       </div>
       <div class="form-group">
         <label class="form-label">電話番号 <span>任意</span></label>
-        <input type="tel" class="form-input" id="ftel" placeholder="例：090-0000-0000">
+        <input type="tel" class="form-input" name="電話番号" placeholder="例：090-0000-0000">
       </div>
       <div class="form-group">
         <label class="form-label">ご希望のサービス <span>※必須</span></label>
-        <select class="form-select form-input" id="fservice">
+        <select class="form-select form-input" name="ご希望のサービス" id="fservice" required>
           <option value="">-- サービスをお選びください --</option>
           <option value="ボディーセラピー・遠隔マッサージ">01. ボディーセラピー・遠隔マッサージ</option>
           <option value="ボディーセラピー・マッサージ">02. ボディーセラピー・マッサージ</option>
           <option value="お繋ぎ屋">03. お繋ぎ屋</option>
-          <option value="アンジェロ♥セッション">03. アンジェロ ♥ セッション</option>
-          <option value="心のワクワクをみるカードリーディング">04. 心のワクワクをみるカードリーディング</option>
-          <option value="海外・国内リトリート">05. 海外・国内リトリート</option>
+          <option value="アンジェロ♥セッション">04. アンジェロ ♥ セッション</option>
+          <option value="心のワクワクをみるカードリーディング">05. 心のワクワクをみるカードリーディング</option>
+          <option value="海外・国内リトリート">06. 海外・国内リトリート</option>
           <option value="その他・相談したい">その他・まずは相談したい</option>
         </select>
       </div>
       <div class="form-group">
         <label class="form-label">メッセージ <span>任意</span></label>
-        <textarea class="form-textarea" id="fmessage" placeholder="ご質問やご要望などお気軽にどうぞ 😊"></textarea>
+        <textarea class="form-textarea" name="メッセージ" placeholder="ご質問やご要望などお気軽にどうぞ 😊"></textarea>
       </div>
-      <p class="form-note">送信後、自動的にメールが起動します。<br>そのまま送信してください。</p>
-      <button class="apply-btn" onclick="submitForm()">お申し込みする ✉️</button>
-    </div>
+      <input type="hidden" name="_subject" value="【お申し込み】ほんまかいな！みわ HP">
+      <p class="form-note">送信ボタンを押すだけで完了します✨<br>通常2〜3営業日以内にご返信いたします。</p>
+      <button type="submit" class="apply-btn">お申し込みする ✉️</button>
+    </form>
 
     <!-- 送信完了メッセージ -->
     <div class="apply-success" id="applySuccess">
@@ -953,47 +944,32 @@ function selectService(el, name) {
   document.getElementById('fservice').value = name;
 }
 
-// フォーム送信（mailtoで送信）
-function submitForm() {
-  const name = document.getElementById('fname').value.trim();
-  const email = document.getElementById('femail').value.trim();
-  const tel = document.getElementById('ftel').value.trim();
-  const service = document.getElementById('fservice').value;
-  const message = document.getElementById('fmessage').value.trim();
-
-  if (!name) { alert('お名前をご入力ください。'); return; }
-  if (!email) { alert('メールアドレスをご入力ください。'); return; }
-  if (!service) { alert('ご希望のサービスをお選びください。'); return; }
-
-  const subject = encodeURIComponent('【お申し込み】' + service + ' / ' + name + ' 様');
-  const body = encodeURIComponent(
-    'ほんまかいな！みわ お申し込みフォームより
-
-' +
-    '━━━━━━━━━━━━━━━━
-' +
-    'お名前：' + name + '
-' +
-    'メールアドレス：' + email + '
-' +
-    '電話番号：' + (tel || '未入力') + '
-' +
-    'ご希望サービス：' + service + '
-' +
-    'メッセージ：
-' + (message || 'なし') + '
-' +
-    '━━━━━━━━━━━━━━━━'
-  );
-
-  // 美和さんのメールアドレスに送信（要変更）
-  window.location.href = 'mailto:miwa2525.k@gmail.com?subject=' + subject + '&body=' + body;
-
-  // 送信完了表示
-  document.getElementById('applySuccess').style.display = 'block';
-  document.getElementById('applyForm').style.opacity = '0.4';
-  document.getElementById('applyForm').style.pointerEvents = 'none';
+// Formspreeの送信をAjaxで処理して完了メッセージを表示
+const applyForm = document.getElementById('applyForm');
+if (applyForm) {
+  applyForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const data = new FormData(applyForm);
+    fetch('https://formspree.io/f/mzdqreag', {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    }).then(response => {
+      if (response.ok) {
+        document.getElementById('applySuccess').style.display = 'block';
+        applyForm.style.opacity = '0.3';
+        applyForm.style.pointerEvents = 'none';
+        document.getElementById('applySuccess').scrollIntoView({behavior:'smooth'});
+      } else {
+        alert('送信に失敗しました。お手数ですが直接メール（miwa2525.k@gmail.com）にご連絡ください。');
+      }
+    }).catch(() => {
+      alert('送信に失敗しました。お手数ですが直接メール（miwa2525.k@gmail.com）にご連絡ください。');
+    });
+  });
 }
+
+// フォーム送信（mailtoで送信）
 </script>
 
 <footer>
