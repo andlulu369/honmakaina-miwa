@@ -314,6 +314,23 @@ footer{background:#0e0618;padding:24px 48px;display:flex;align-items:center;just
   </div>
 </section>
 
+<section class="hitokoto" id="hitokoto">
+  <div class="hk-inner">
+    <span class="sec-en">Daily Message</span>
+    <h2 class="sec-ja">今日の一言</h2>
+    <span class="sec-orn">― ✦ ―</span>
+    <p class="hk-lead">みわからみわへ、毎日ひとことお届けします 💕</p>
+    <div class="hk-form-wrap" style="display:none;">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtHDcYo0QxvE402lmnXfCURk48j4FbN23X-vzruEnkh1sNpQ/viewform?usp=header" target="_blank" class="hk-btn">Googleフォームを開く ↗</a>
+    </div>
+    <div class="hk-latest" id="hkLatest">
+      <div class="hk-loading">読み込み中… 💫</div>
+    </div>
+    <div class="hk-posts" id="hkPosts"></div>
+    <p class="hk-note">※投稿後、最大1〜2分で反映されます。</p>
+  </div>
+</section>
+
 <section class="services" id="service">
   <span class="sec-en">Service</span>
   <h2 class="sec-ja">サービスメニュー</h2>
@@ -939,30 +956,6 @@ footer{background:#0e0618;padding:24px 48px;display:flex;align-items:center;just
   <p class="msg-text">人生の答えは、<em>あなたの中</em>にある。</p>
   <p class="msg-sub">あなたらしい人生を楽しむためのお手伝いをしています。</p>
   <p class="msg-note">※サービス内容・料金は予告なく変更する場合がございます。ご了承ください。</p>
-</section>
-
-
-<section class="hitokoto" id="hitokoto">
-  <div class="hk-inner">
-    <span class="sec-en">Daily Message</span>
-    <h2 class="sec-ja">今日の一言</h2>
-    <span class="sec-orn">― ✦ ―</span>
-    <p class="hk-lead">みわからみわへ、毎日ひとことお届けします 💕</p>
-
-    <!-- 管理者用フォーム（閲覧者には非表示） -->
-    <div class="hk-form-wrap" style="display:none;">
-      <div class="hk-form-label">✏️ 今日の一言を投稿する（管理者用）</div>
-      <div class="hk-form-note">👇 下のボタンからGoogleフォームを開いて投稿してください</div>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtHDcYo0QxvE402lmnXfCURk48j4FbN23X-vzruEnkh1sNpQ/viewform?usp=header" target="_blank" class="hk-btn">Googleフォームを開く ↗</a>
-    </div>
-
-    <!-- 最新の一言 自動表示エリア -->
-    <div class="hk-latest" id="hkLatest">
-      <div class="hk-loading">読み込み中… 💫</div>
-    </div>
-    <div class="hk-posts" id="hkPosts"></div>
-    <p class="hk-note">※投稿後、最大1〜2分で反映されます。</p>
-  </div>
 </section>
 
 <section class="contact" id="contact">
