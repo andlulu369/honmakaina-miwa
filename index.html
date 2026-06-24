@@ -658,7 +658,7 @@ if (applyForm) {
         const rows = parseCSV(text);
 
         if (!rows || rows.length === 0) {
-          latestEl.innerHTML = '<div class="hk-error">まだ投稿がありません 🌸</div>';
+          latestEl.innerHTML = '<div class="hk-post-card latest"><div class="hk-post-card-date">お楽しみに...</div><div class="hk-post-card-text">みわからの一言をお届けします 💕</div></div>';
           return;
         }
 
@@ -1132,7 +1132,7 @@ if (applyForm) {
         const rows = json.table.rows;
 
         if (!rows || rows.length === 0) {
-          latestEl.innerHTML = '<div class="hk-error">まだ投稿がありません 🌸</div>';
+          latestEl.innerHTML = '<div class="hk-post-card latest"><div class="hk-post-card-date">お楽しみに...</div><div class="hk-post-card-text">みわからの一言をお届けします 💕</div></div>';
           return;
         }
 
