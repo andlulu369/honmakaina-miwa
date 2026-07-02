@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>サービス | ほんまかいな！みわ</title>
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@300;400;600&family=Cormorant+Garamond:wght@300;400;500&display=swap');
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --purple:#2e1460;
+  --purple-bg:#1e0a4a;
+  --gold:#ffe066;
+  --gold-dark:#c4973a;
+  --cream:#fdfbf0;
+  --text-light:#ffffff;
+  --text-soft:#d4c8f0;
+  --text-mid:#5a3a78;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Noto Sans JP',sans-serif;background:var(--purple-bg);color:var(--text-light);}
+
+/* NAV */
+nav{background:rgba(30,10,74,0.97);border-bottom:2px solid rgba(255,224,102,0.3);padding:14px 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.logo-wrap{text-decoration:none;}
+.logo-sub{font-family:'Cormorant Garamond',serif;font-size:10px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;display:block;}
+.logo-main{font-family:'Noto Serif JP',serif;font-size:16px;color:#fff;font-weight:600;letter-spacing:1px;}
+.nav-links{display:flex;gap:20px;list-style:none;flex-wrap:wrap;}
+.nav-links a{font-size:12px;color:var(--text-soft);text-decoration:none;letter-spacing:1px;padding-bottom:2px;border-bottom:1.5px solid transparent;transition:all 0.2s;}
+.nav-links a:hover,.nav-links a.active{border-color:var(--gold);color:var(--gold);}
+.nav-btn{background:var(--gold);color:var(--purple);border:none;padding:9px 18px;border-radius:24px;font-size:12px;cursor:pointer;font-family:'Noto Sans JP',sans-serif;font-weight:700;text-decoration:none;transition:opacity 0.2s;}
+.nav-btn:hover{opacity:0.85;}
+
+/* FOOTER */
+footer{background:#0e0618;padding:32px 40px;text-align:center;}
+.ft-logo{font-family:'Noto Serif JP',serif;font-size:14px;color:var(--gold);letter-spacing:2px;margin-bottom:16px;}
+.ft-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:16px;}
+.ft-links a{font-size:12px;color:var(--text-soft);text-decoration:none;letter-spacing:1px;}
+.ft-links a:hover{color:var(--gold);}
+.ft-copy{font-size:11px;color:rgba(255,255,255,0.2);letter-spacing:1px;}
+
+/* SECTIONS */
+section{padding:80px 40px;}
+.sec-en{font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:5px;color:var(--gold);text-transform:uppercase;text-align:center;display:block;margin-bottom:8px;}
+.sec-ja{font-family:'Noto Serif JP',serif;font-size:26px;font-weight:400;color:#fff;text-align:center;letter-spacing:2px;margin-bottom:8px;}
+.sec-orn{text-align:center;color:rgba(255,224,102,0.4);font-size:14px;letter-spacing:6px;margin-bottom:48px;display:block;}
+.btn-gold{background:var(--gold);color:var(--purple);border:none;padding:13px 28px;border-radius:28px;font-size:13px;cursor:pointer;font-family:'Noto Sans JP',sans-serif;font-weight:700;letter-spacing:1px;text-decoration:none;display:inline-block;transition:opacity 0.2s;}
+.btn-gold:hover{opacity:0.85;}
+.btn-outline{background:transparent;color:var(--gold);border:1.5px solid var(--gold);padding:12px 28px;border-radius:28px;font-size:13px;cursor:pointer;font-family:'Noto Sans JP',sans-serif;letter-spacing:1px;text-decoration:none;display:inline-block;}
+
+@media(max-width:768px){
+  nav{padding:12px 16px;}
+  .nav-links{display:none;}
+  section{padding:60px 20px;}
+}
+
+
+.services-sec{background:var(--purple-bg);padding:80px 40px;}
+.srv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;max-width:960px;margin:0 auto;}
+.sc{background:rgba(255,255,255,0.04);border-radius:16px;padding:28px 24px;border:1px solid rgba(255,224,102,0.12);transition:transform 0.2s,border-color 0.2s;}
+.sc:hover{transform:translateY(-4px);border-color:rgba(255,224,102,0.4);}
+.sc.featured{background:rgba(255,224,102,0.08);border-color:rgba(255,224,102,0.3);}
+.sc-num{font-family:'Cormorant Garamond',serif;font-size:32px;color:rgba(255,224,102,0.5);margin-bottom:10px;display:block;}
+.sc.featured .sc-num{color:var(--gold);}
+.sc-name{font-family:'Noto Serif JP',serif;font-size:16px;font-weight:500;color:#fff;line-height:1.6;margin-bottom:8px;}
+.sc-desc{font-size:12px;color:var(--text-soft);line-height:1.9;margin-bottom:16px;}
+.sc-divider{width:24px;height:1.5px;background:rgba(255,224,102,0.3);margin-bottom:14px;}
+.sc.featured .sc-divider{background:var(--gold);}
+.sc-plabel{font-size:9px;color:var(--gold);letter-spacing:2px;margin-bottom:4px;text-transform:uppercase;display:block;}
+.sc-price{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--gold);display:block;}
+.sc-note{font-size:11px;color:var(--text-soft);margin-top:3px;display:block;}
+.apply-cta{background:var(--purple);padding:60px 40px;text-align:center;}
+
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo-wrap">
+    <span class="logo-sub">マッチングピーポー</span>
+    <span class="logo-main">ほんまかいな！みわ</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" >ホーム</a></li>
+    <li><a href="profile.html" >プロフィール</a></li>
+    <li><a href="hitokoto.html" >今日の一言</a></li>
+    <li><a href="service.html" class='active'>サービス</a></li>
+    <li><a href="mammoth.html" >マンモス企画</a></li>
+    <li><a href="hablic.html" >ハブリック企画</a></li>
+    <li><a href="contact.html" >お問い合わせ</a></li>
+  </ul>
+  <a href="contact.html" class="nav-btn">お申し込み ✉️</a>
+</nav>
+
+<section class="services-sec">
+  <span class="sec-en">Service</span>
+  <h2 class="sec-ja">サービスメニュー</h2>
+  <span class="sec-orn">✦</span>
+  <div class="srv-grid">
+    <div class="sc">
+      <span class="sc-num">01</span>
+      <p class="sc-name">ボディーセラピー・遠隔マッサージ</p>
+      <p class="sc-desc">遠隔にて、むくみ取りを目的としたマッサージを行います。</p>
+      <div class="sc-divider"></div>
+      <span class="sc-plabel">Price</span>
+      <span class="sc-price">¥1,000 / 10分</span>
+      <span class="sc-note">60分〜</span>
+    </div>
+    <div class="sc">
+      <span class="sc-num">02</span>
+      <p class="sc-name">ボディーセラピー・マッサージ</p>
+      <p class="sc-desc">直接施術にて、むくみ取りを目的としたマッサージを行います。</p>
+      <div class="sc-divider"></div>
+      <span class="sc-plabel">Price</span>
+      <span class="sc-price">¥1,000 / 10分</span>
+      <span class="sc-note">60分〜</span>
+    </div>
+    <div class="sc featured">
+      <span class="sc-num">03</span>
+      <p class="sc-name">お繋ぎ屋</p>
+      <p class="sc-desc">「できる人」と「やりたい人」をつなぐご縁のマッチング。</p>
+      <div class="sc-divider"></div>
+      <span class="sc-plabel">Price</span>
+      <span class="sc-price">成立金額の 10%</span>
+    </div>
+    <div class="sc">
+      <span class="sc-num">04</span>
+      <p class="sc-name">心のワクワクをみるカードリーディング</p>
+      <p class="sc-desc">禅タロットを使ったカードリーディングです。</p>
+      <div class="sc-divider"></div>
+      <span class="sc-plabel">Price</span>
+      <span class="sc-price">¥1,000 / 10分</span>
+      <span class="sc-note">60分〜</span>
+    </div>
+    <div class="sc">
+      <span class="sc-num">05</span>
+      <p class="sc-name">海外・国内リトリート</p>
+      <p class="sc-desc">その時、その場所、その仲間だからこそ体験できる特別な時間。</p>
+      <div class="sc-divider"></div>
+      <span class="sc-plabel">Price</span>
+      <span class="sc-price" style="font-size:14px;">各企画ごとにご案内</span>
+    </div>
+    <div class="sc">
+      <span class="sc-num">06</span>
+      <p class="sc-name">あなたの読み解きボックス</p>
+      <p class="sc-desc">あなたの人生を読み解き、気づきをお届けします。</p>
+      <div class="sc-divider"></div>
+      <span class="sc-plabel">Price</span>
+      <span class="sc-price">¥1,000 / 10分</span>
+      <span class="sc-note">70分〜</span>
+    </div>
+  </div>
+</section>
+
+<section class="apply-cta">
+  <p style="font-size:15px;color:var(--text-soft);margin-bottom:24px;line-height:2;">ご興味のあるサービスはお気軽にお申し込みください😊</p>
+  <a href="contact.html" class="btn-gold">お申し込みはこちら ↗</a>
+</section>
+
+<footer>
+  <div class="ft-logo">ほんまかいな！みわ ｜ 金澤 美和</div>
+  <div class="ft-links">
+    <a href="index.html">ホーム</a>
+    <a href="profile.html">プロフィール</a>
+    <a href="service.html">サービス</a>
+    <a href="mammoth.html">マンモス企画</a>
+    <a href="hablic.html">ハブリック企画</a>
+    <a href="contact.html">お問い合わせ</a>
+  </div>
+  <div class="ft-copy">© 2025 ほんまかいな！みわ | 金澤 美和. All Rights Reserved.</div>
+</footer>
+
+</body>
+</html>

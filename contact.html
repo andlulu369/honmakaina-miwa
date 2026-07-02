@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>お問い合わせ | ほんまかいな！みわ</title>
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@300;400;600&family=Cormorant+Garamond:wght@300;400;500&display=swap');
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --purple:#2e1460;
+  --purple-bg:#1e0a4a;
+  --gold:#ffe066;
+  --gold-dark:#c4973a;
+  --cream:#fdfbf0;
+  --text-light:#ffffff;
+  --text-soft:#d4c8f0;
+  --text-mid:#5a3a78;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Noto Sans JP',sans-serif;background:var(--purple-bg);color:var(--text-light);}
+
+/* NAV */
+nav{background:rgba(30,10,74,0.97);border-bottom:2px solid rgba(255,224,102,0.3);padding:14px 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.logo-wrap{text-decoration:none;}
+.logo-sub{font-family:'Cormorant Garamond',serif;font-size:10px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;display:block;}
+.logo-main{font-family:'Noto Serif JP',serif;font-size:16px;color:#fff;font-weight:600;letter-spacing:1px;}
+.nav-links{display:flex;gap:20px;list-style:none;flex-wrap:wrap;}
+.nav-links a{font-size:12px;color:var(--text-soft);text-decoration:none;letter-spacing:1px;padding-bottom:2px;border-bottom:1.5px solid transparent;transition:all 0.2s;}
+.nav-links a:hover,.nav-links a.active{border-color:var(--gold);color:var(--gold);}
+.nav-btn{background:var(--gold);color:var(--purple);border:none;padding:9px 18px;border-radius:24px;font-size:12px;cursor:pointer;font-family:'Noto Sans JP',sans-serif;font-weight:700;text-decoration:none;transition:opacity 0.2s;}
+.nav-btn:hover{opacity:0.85;}
+
+/* FOOTER */
+footer{background:#0e0618;padding:32px 40px;text-align:center;}
+.ft-logo{font-family:'Noto Serif JP',serif;font-size:14px;color:var(--gold);letter-spacing:2px;margin-bottom:16px;}
+.ft-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:16px;}
+.ft-links a{font-size:12px;color:var(--text-soft);text-decoration:none;letter-spacing:1px;}
+.ft-links a:hover{color:var(--gold);}
+.ft-copy{font-size:11px;color:rgba(255,255,255,0.2);letter-spacing:1px;}
+
+/* SECTIONS */
+section{padding:80px 40px;}
+.sec-en{font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:5px;color:var(--gold);text-transform:uppercase;text-align:center;display:block;margin-bottom:8px;}
+.sec-ja{font-family:'Noto Serif JP',serif;font-size:26px;font-weight:400;color:#fff;text-align:center;letter-spacing:2px;margin-bottom:8px;}
+.sec-orn{text-align:center;color:rgba(255,224,102,0.4);font-size:14px;letter-spacing:6px;margin-bottom:48px;display:block;}
+.btn-gold{background:var(--gold);color:var(--purple);border:none;padding:13px 28px;border-radius:28px;font-size:13px;cursor:pointer;font-family:'Noto Sans JP',sans-serif;font-weight:700;letter-spacing:1px;text-decoration:none;display:inline-block;transition:opacity 0.2s;}
+.btn-gold:hover{opacity:0.85;}
+.btn-outline{background:transparent;color:var(--gold);border:1.5px solid var(--gold);padding:12px 28px;border-radius:28px;font-size:13px;cursor:pointer;font-family:'Noto Sans JP',sans-serif;letter-spacing:1px;text-decoration:none;display:inline-block;}
+
+@media(max-width:768px){
+  nav{padding:12px 16px;}
+  .nav-links{display:none;}
+  section{padding:60px 20px;}
+}
+
+
+.contact-sec{background:var(--purple-bg);padding:80px 40px;}
+.contact-inner{max-width:720px;margin:0 auto;}
+
+.contact-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px;margin-bottom:56px;}
+.ct-card{background:rgba(255,255,255,0.04);border-radius:14px;padding:24px 16px;border:1px solid rgba(255,224,102,0.15);cursor:pointer;transition:all 0.2s;text-decoration:none;display:block;text-align:center;}
+.ct-card:hover{background:rgba(255,224,102,0.08);border-color:var(--gold);}
+.ct-icon{font-size:28px;margin-bottom:10px;display:block;}
+.ct-label{font-size:12px;color:var(--text-soft);letter-spacing:1.5px;}
+
+.apply-form{display:flex;flex-direction:column;gap:20px;}
+.form-group{display:flex;flex-direction:column;gap:6px;}
+.form-label{font-size:12px;color:var(--gold);letter-spacing:2px;}
+.form-label span{color:rgba(255,224,102,0.5);font-size:10px;margin-left:4px;}
+.form-input,.form-select,.form-textarea{background:rgba(255,255,255,0.05);border:1px solid rgba(255,224,102,0.2);border-radius:10px;padding:13px 16px;color:#fff;font-size:14px;font-family:'Noto Sans JP',sans-serif;outline:none;transition:border-color 0.2s;width:100%;}
+.form-input::placeholder,.form-textarea::placeholder{color:rgba(255,255,255,0.2);}
+.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--gold);}
+.form-select{appearance:none;cursor:pointer;}
+.form-select option{background:#1e0a4a;color:#fff;}
+.form-textarea{resize:vertical;min-height:120px;line-height:1.8;}
+.form-note{font-size:12px;color:var(--text-soft);text-align:center;line-height:1.8;}
+.apply-btn{background:var(--gold);color:var(--purple);border:none;padding:16px 40px;border-radius:32px;font-size:15px;font-weight:700;font-family:'Noto Sans JP',sans-serif;cursor:pointer;letter-spacing:2px;transition:opacity 0.2s;width:100%;margin-top:8px;}
+.apply-btn:hover{opacity:0.85;}
+.apply-success{display:none;background:rgba(255,224,102,0.1);border:2px solid rgba(255,224,102,0.4);border-radius:20px;padding:40px;text-align:center;margin-top:24px;}
+.apply-success-icon{font-size:48px;margin-bottom:16px;}
+.apply-success-text{font-family:'Noto Serif JP',serif;font-size:20px;color:var(--gold);margin-bottom:12px;letter-spacing:2px;}
+.apply-success-sub{font-size:14px;color:var(--text-soft);line-height:2.2;}
+
+.srv-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:32px;}
+.apply-srv{background:rgba(255,255,255,0.03);border:1px solid rgba(255,224,102,0.12);border-radius:12px;padding:16px 14px;cursor:pointer;transition:all 0.2s;text-align:center;}
+.apply-srv:hover,.apply-srv.selected{background:rgba(255,224,102,0.1);border-color:var(--gold);}
+.apply-srv-num{font-family:'Cormorant Garamond',serif;font-size:24px;color:rgba(255,224,102,0.5);margin-bottom:4px;}
+.apply-srv.selected .apply-srv-num{color:var(--gold);}
+.apply-srv-name{font-size:11px;color:#fff;line-height:1.6;}
+.apply-srv-price{font-size:10px;color:var(--gold);margin-top:6px;}
+
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo-wrap">
+    <span class="logo-sub">マッチングピーポー</span>
+    <span class="logo-main">ほんまかいな！みわ</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" >ホーム</a></li>
+    <li><a href="profile.html" >プロフィール</a></li>
+    <li><a href="hitokoto.html" >今日の一言</a></li>
+    <li><a href="service.html" >サービス</a></li>
+    <li><a href="mammoth.html" >マンモス企画</a></li>
+    <li><a href="hablic.html" >ハブリック企画</a></li>
+    <li><a href="contact.html" class='active'>お問い合わせ</a></li>
+  </ul>
+  <a href="contact.html" class="nav-btn">お申し込み ✉️</a>
+</nav>
+
+<section class="contact-sec">
+  <div class="contact-inner">
+    <span class="sec-en">Contact</span>
+    <h1 class="sec-ja">お問い合わせ</h1>
+    <span class="sec-orn">✦</span>
+
+    <p style="font-size:14px;color:var(--text-soft);text-align:center;margin-bottom:32px;line-height:2;">お気軽にご連絡ください♪<br>どのご連絡方法でもお待ちしています。</p>
+
+    <div class="contact-links">
+      <a href="https://lin.ee/5qKbvJUz" target="_blank" class="ct-card">
+        <span class="ct-icon">💬</span>
+        <span class="ct-label">LINE</span>
+      </a>
+      <a href="INSTAGRAM_URL" target="_blank" class="ct-card">
+        <span class="ct-icon">📸</span>
+        <span class="ct-label">Instagram</span>
+      </a>
+      <a href="mailto:miwa2525.k@gmail.com" class="ct-card">
+        <span class="ct-icon">✉️</span>
+        <span class="ct-label">メール</span>
+      </a>
+    </div>
+
+    <h2 style="font-family:'Noto Serif JP',serif;font-size:20px;color:#fff;text-align:center;letter-spacing:2px;margin-bottom:32px;">お申し込みフォーム</h2>
+
+    <div class="srv-cards">
+      <div class="apply-srv" onclick="selectService(this,'ボディーセラピー・遠隔マッサージ')">
+        <div class="apply-srv-num">01</div>
+        <div class="apply-srv-name">ボディーセラピー・遠隔マッサージ</div>
+        <div class="apply-srv-price">¥1,000 / 10分〜</div>
+      </div>
+      <div class="apply-srv" onclick="selectService(this,'ボディーセラピー・マッサージ')">
+        <div class="apply-srv-num">02</div>
+        <div class="apply-srv-name">ボディーセラピー・マッサージ</div>
+        <div class="apply-srv-price">¥1,000 / 10分〜</div>
+      </div>
+      <div class="apply-srv" onclick="selectService(this,'お繋ぎ屋')">
+        <div class="apply-srv-num">03</div>
+        <div class="apply-srv-name">お繋ぎ屋</div>
+        <div class="apply-srv-price">成立金額の10%</div>
+      </div>
+      <div class="apply-srv" onclick="selectService(this,'心のワクワクをみるカードリーディング')">
+        <div class="apply-srv-num">04</div>
+        <div class="apply-srv-name">心のワクワクをみるカードリーディング</div>
+        <div class="apply-srv-price">¥1,000 / 10分〜</div>
+      </div>
+      <div class="apply-srv" onclick="selectService(this,'海外・国内リトリート')">
+        <div class="apply-srv-num">05</div>
+        <div class="apply-srv-name">海外・国内リトリート</div>
+        <div class="apply-srv-price">各企画ごとにご案内</div>
+      </div>
+      <div class="apply-srv" onclick="selectService(this,'あなたの読み解きボックス')">
+        <div class="apply-srv-num">06</div>
+        <div class="apply-srv-name">あなたの読み解きボックス</div>
+        <div class="apply-srv-price">¥1,000 / 10分〜</div>
+      </div>
+    </div>
+
+    <form class="apply-form" id="applyForm" action="https://formspree.io/f/mzdqreag" method="POST">
+      <div class="form-group">
+        <label class="form-label">お名前 <span>※必須</span></label>
+        <input type="text" class="form-input" name="お名前" placeholder="例：金澤 美和" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">メールアドレス <span>※必須</span></label>
+        <input type="email" class="form-input" name="メールアドレス" placeholder="例：miwa@example.com" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">電話番号 <span>任意</span></label>
+        <input type="tel" class="form-input" name="電話番号" placeholder="例：090-0000-0000">
+      </div>
+      <div class="form-group">
+        <label class="form-label">ご希望のサービス <span>※必須</span></label>
+        <select class="form-select form-input" name="ご希望のサービス" id="fservice" required>
+          <option value="">-- サービスをお選びください --</option>
+          <option value="ボディーセラピー・遠隔マッサージ">01. ボディーセラピー・遠隔マッサージ</option>
+          <option value="ボディーセラピー・マッサージ">02. ボディーセラピー・マッサージ</option>
+          <option value="お繋ぎ屋">03. お繋ぎ屋</option>
+          <option value="心のワクワクをみるカードリーディング">04. 心のワクワクをみるカードリーディング</option>
+          <option value="海外・国内リトリート">05. 海外・国内リトリート</option>
+          <option value="あなたの読み解きボックス">06. あなたの読み解きボックス</option>
+          <option value="その他・相談したい">その他・まずは相談したい</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">メッセージ <span>任意</span></label>
+        <textarea class="form-textarea" name="メッセージ" placeholder="ご質問やご要望などお気軽にどうぞ 😊"></textarea>
+      </div>
+      <input type="hidden" name="_subject" value="【お申し込み】ほんまかいな！みわ HP">
+      <p class="form-note">送信ボタンを押すだけで完了します✨<br>通常2〜3営業日以内にご返信いたします。</p>
+      <button type="submit" class="apply-btn">お申し込みする ✉️</button>
+    </form>
+
+    <div class="apply-success" id="applySuccess">
+      <div class="apply-success-icon">💌</div>
+      <div class="apply-success-text">お申し込みありがとうございます！</div>
+      <div class="apply-success-sub">内容を受け付けました✨<br><br>
+        <strong style="color:var(--gold);">通常2〜3営業日以内にご返信いたします😊</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="ft-logo">ほんまかいな！みわ ｜ 金澤 美和</div>
+  <div class="ft-links">
+    <a href="index.html">ホーム</a>
+    <a href="profile.html">プロフィール</a>
+    <a href="service.html">サービス</a>
+    <a href="mammoth.html">マンモス企画</a>
+    <a href="hablic.html">ハブリック企画</a>
+    <a href="contact.html">お問い合わせ</a>
+  </div>
+  <div class="ft-copy">© 2025 ほんまかいな！みわ | 金澤 美和. All Rights Reserved.</div>
+</footer>
+
+<script>
+function selectService(el, name) {
+  document.querySelectorAll('.apply-srv').forEach(s => s.classList.remove('selected'));
+  el.classList.add('selected');
+  document.getElementById('fservice').value = name;
+}
+
+const applyForm = document.getElementById('applyForm');
+if (applyForm) {
+  applyForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const data = new FormData(applyForm);
+    fetch('https://formspree.io/f/mzdqreag', {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    }).then(response => {
+      if (response.ok) {
+        document.getElementById('applySuccess').style.display = 'block';
+        applyForm.style.opacity = '0.3';
+        applyForm.style.pointerEvents = 'none';
+        document.getElementById('applySuccess').scrollIntoView({behavior:'smooth'});
+      } else {
+        alert('送信に失敗しました。直接メール（miwa2525.k@gmail.com）にご連絡ください。');
+      }
+    }).catch(() => {
+      alert('送信に失敗しました。直接メール（miwa2525.k@gmail.com）にご連絡ください。');
+    });
+  });
+}
+</script>
+
+</body>
+</html>
